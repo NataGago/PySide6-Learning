@@ -14,13 +14,18 @@ import os
 from qt_core import *
 
 # IMPORT MAIN_WINDOW
-from interface.windows.main_window.ui_main_window import *
+from interface.windows.main_window.ui_main_window import UI_MainWindow
 
 # MAIN WINDOW
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         
+        # SETUP MAIN WINDOW
+        self.ui = UI_MainWindow()
+        self.ui.setup_ui(self)
+        
+        # EXIBE NOSSA APLICACAO
         self.show()
 
 if __name__ == "__main__":
