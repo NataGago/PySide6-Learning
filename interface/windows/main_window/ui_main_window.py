@@ -9,6 +9,9 @@
 # IMPORT QT CORE
 from qt_core import * 
 
+# IMPORT PAGES
+from interface.pages.ui_pages import Ui_application_pages
+
 # MAIN WINDOW
 class UI_MainWindow(object):
     def setup_ui(self, parent):
@@ -68,12 +71,32 @@ class UI_MainWindow(object):
         # Application pages
         self.pages = QStackedWidget()
         self.pages.setStyleSheet("font-size: 12pt; color: #f8f8f2")
+        self.ui_pages = Ui_application_pages()
+        self.ui_pages.setupUi(self.pages)
+        self.pages.setCurrentWidget(self.ui_pages.page_1)
         
         # BOTTOM BAR
         self.bottom_bar = QFrame()
         self.bottom_bar.setMinimumHeight(30)
         self.bottom_bar.setMaximumHeight(30)
         self.bottom_bar.setStyleSheet("background-color: #21232d; color: #6272a4")
+        
+        self.bottom_bar_layout = QHBoxLayout(self.bottom_bar)
+        self.bottom_bar_layout.setContentsMargins(10, 0, 10, 0)
+        
+        # Left label
+        self.bottom_label_left = QLabel("Criado por: Natã A. Gago")
+        
+        # Bottom spacer
+        self.bottom_spacer = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        
+        # Right label
+        self.bottom_label_right = QLabel(u"\u00A9 2021")
+        
+        # Add to bottom bar layout
+        self.bottom_bar_layout.addWidget(self.bottom_label_left)
+        self.bottom_bar_layout.addSpacerItem(self.bottom_spacer)
+        self.bottom_bar_layout.addWidget(self.bottom_label_right)
         
         # Add to content layout
         self.content_layout.addWidget(self.top_bar)
