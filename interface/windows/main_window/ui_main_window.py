@@ -24,10 +24,13 @@ class UI_MainWindow(object):
         
         # CREATE MAIN LAYOUT
         self.main_layout = QHBoxLayout(self.central_frame)
+        self.main_layout.setContentsMargins(0, 0, 0, 0)
+        self.main_layout.setSpacing(0)
         
         # LEFT MENU
         self.left_menu = QFrame()
         self.left_menu.setStyleSheet("background-color: #44475a")
+        self.left_menu.setMaximumWidth(50)
         
         # CONTENT
         self.content = QFrame()
