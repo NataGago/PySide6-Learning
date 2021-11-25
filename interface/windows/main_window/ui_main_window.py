@@ -18,3 +18,25 @@ class UI_MainWindow(object):
         # SET INITIAL PARAMETERS
         parent.resize(1200, 720)
         parent.setMinimumSize(960, 540)
+        
+        # CREATE CENTRAL WIDGET
+        self.central_frame = QFrame()
+        
+        # CREATE MAIN LAYOUT
+        self.main_layout = QHBoxLayout(self.central_frame)
+        
+        # LEFT MENU
+        self.left_menu = QFrame()
+        self.left_menu.setStyleSheet("background-color: #44475a")
+        
+        # CONTENT
+        self.content = QFrame()
+        self.content.setStyleSheet("background-color: #282a36")
+        
+        # ADD WIDGETS TO APP
+        self.main_layout.addWidget(self.left_menu)
+        self.main_layout.addWidget(self.content)
+        
+        
+        # SET CENTRAL WIDGET
+        parent.setCentralWidget(self.central_frame)
