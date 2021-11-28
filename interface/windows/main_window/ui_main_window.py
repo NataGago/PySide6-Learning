@@ -13,7 +13,7 @@ from qt_core import *
 from interface.pages.ui_pages import Ui_application_pages
 
 # MAIN WINDOW
-class UI_MainWindow(object):
+class UI_MainWindow():
     def setup_ui(self, parent):
         if not parent.objectName():
             parent.setObjectName("MainWindow")
